@@ -55,7 +55,7 @@ export default function LoopTimeline() {
         <header className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
             <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-accent)]">
-              <span className="live-dot" /> Section 04 · The loop
+              <span className="live-dot" /> Section 05 · The loop
             </div>
             <h2 className="display text-[40px] md:text-[60px] leading-[1.02] text-[var(--color-ink)] max-w-[18ch]">
               Push to merged.{" "}

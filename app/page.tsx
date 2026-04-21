@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import PartnerCarousel from "@/components/PartnerCarousel";
 import HeroShowcase from "@/components/HeroShowcase";
 import InstallWarning from "@/components/InstallWarning";
+import FirstRun from "@/components/FirstRun";
 import Walkthrough from "@/components/Walkthrough";
 import LoopTimeline from "@/components/LoopTimeline";
 import Traction from "@/components/Traction";
@@ -19,6 +20,7 @@ export default function Home() {
         <PartnerCarousel />
         <HeroShowcase />
         <InstallWarning />
+        <FirstRun />
         <Walkthrough />
         <LoopTimeline />
         <Traction />

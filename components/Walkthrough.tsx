@@ -122,7 +122,7 @@ export default function Walkthrough() {
         <header className="mb-20 md:mb-28 grid grid-cols-1 gap-10 md:grid-cols-[1fr_auto] md:items-end">
           <div>
             <div className="mb-6 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-accent)]">
-              <span className="live-dot" /> Section 03 · Walkthrough
+              <span className="live-dot" /> Section 04 · Walkthrough
             </div>
             <h2 className="display max-w-[20ch] text-[40px] md:text-[60px] leading-[1.02] text-[var(--color-ink)]">
               How a push becomes a{" "}
