@@ -1,15 +1,13 @@
-import CopyCommand from "./CopyCommand";
-
 export default function InstallWarning() {
   return (
     <section id="install" className="relative border-y border-[var(--color-border)] bg-[var(--color-canvas-deep)]">
-      <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-12 px-6 py-24 md:grid-cols-[360px_1fr] md:gap-16 md:px-10 md:py-32">
+      <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-12 px-6 py-20 md:grid-cols-[360px_1fr] md:gap-16 md:px-10 md:py-28">
 
         {/* Left rail — sticky label */}
-        <div className="md:sticky md:top-24 md:self-start">
+        <div className="md:sticky md:top-28 md:self-start">
           <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-warn)]">
             <span className="inline-block h-2 w-2 rotate-45 border border-[var(--color-warn)]" />
-            Section 02 · Install
+            Section 02 · Why the extra step
           </div>
           <h2 className="display text-[32px] md:text-[40px] leading-[1.02] text-[var(--color-ink)]">
             Unsigned
@@ -20,38 +18,16 @@ export default function InstallWarning() {
           </h2>
           <p className="mt-6 max-w-[36ch] text-[14.5px] leading-[1.6] text-[var(--color-muted)]">
             AgentDesk is indie-built. No Apple Developer certificate yet —
-            $99/year, on the roadmap. macOS will quarantine the app on first
-            run. One terminal command strips the flag.
+            $99/year, on the roadmap. macOS quarantines the app on first run.
+            One terminal command strips the flag. The details below explain why
+            that's safe.
           </p>
         </div>
 
-        {/* Right — steps */}
+        {/* Right — explainer */}
         <div>
-          <ol className="relative flex flex-col gap-10">
-            <Step n="01" title="Download the .dmg.">
-              <p>
-                Double-click to mount it. Drag <code className="kbd">AgentDesk.app</code> into your <code className="kbd">/Applications</code> folder.
-              </p>
-            </Step>
-
-            <Step n="02" title="Strip the quarantine flag.">
-              <p className="mb-4">
-                Open Terminal. Paste the command below. Press Enter. You only
-                do this once.
-              </p>
-              <CopyCommand command="xattr -rd com.apple.quarantine /Applications/AgentDesk.app" />
-            </Step>
-
-            <Step n="03" title="Launch. That's it.">
-              <p>
-                Double-click <code className="kbd">AgentDesk</code> in
-                Applications. From here on it opens like any other app.
-              </p>
-            </Step>
-          </ol>
-
           {/* Why safe */}
-          <details className="group mt-10 rounded-[3px] border border-[var(--color-border)] bg-[var(--color-surface)] open:bg-[var(--color-surface-raised)]">
+          <details className="group rounded-[3px] border border-[var(--color-border)] bg-[var(--color-surface)] open:bg-[var(--color-surface-raised)]" open>
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--color-ink-dim)] transition-colors hover:text-[var(--color-ink)]">
               <span className="flex items-center gap-3">
                 <span className="text-[var(--color-accent)]">?</span>
@@ -96,23 +72,5 @@ export default function InstallWarning() {
         </div>
       </div>
     </section>
-  );
-}
-
-function Step({ n, title, children }: { n: string; title: string; children: React.ReactNode }) {
-  return (
-    <li className="relative grid grid-cols-[auto_1fr] gap-5 md:gap-7">
-      <div className="font-mono text-[11px] tracking-[0.14em] text-[var(--color-muted-deep)] pt-1">
-        {n}
-      </div>
-      <div>
-        <h3 className="text-[18px] font-medium leading-[1.25] text-[var(--color-ink)] tracking-[-0.01em]">
-          {title}
-        </h3>
-        <div className="mt-3 max-w-[54ch] text-[14.5px] leading-[1.65] text-[var(--color-ink-dim)]">
-          {children}
-        </div>
-      </div>
-    </li>
   );
 }

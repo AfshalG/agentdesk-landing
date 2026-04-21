@@ -39,9 +39,9 @@ export default async function Nav() {
   const [version, stars] = await Promise.all([getCurrentVersion(), getStarCount()]);
 
   return (
-    <header className="relative z-20">
-      <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-5 md:px-10 md:py-6">
-        <div className="flex items-center gap-3">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--color-border)] bg-[color-mix(in_oklab,var(--color-canvas)_82%,transparent)] backdrop-blur-md supports-[not(backdrop-filter:blur(4px))]:bg-[var(--color-canvas)]">
+      <div className="mx-auto grid max-w-[1200px] grid-cols-[auto_1fr_auto] items-center gap-6 px-6 py-4 md:px-10 md:py-5">
+        <div className="flex items-center gap-3 justify-self-start">
           <Link href="/" className="flex items-center gap-2.5 group" aria-label="AgentDesk home">
             <AgentDeskMark className="h-6 w-6 text-[var(--color-accent)] transition-transform duration-300 group-hover:rotate-[-4deg]" />
             <span className="text-[15px] font-medium tracking-[-0.01em] text-[var(--color-ink)]">
@@ -53,7 +53,7 @@ export default async function Nav() {
           </span>
         </div>
 
-        <nav className="hidden md:flex items-center gap-8 font-mono text-[12.5px] tracking-[0.02em] text-[var(--color-ink-dim)]">
+        <nav className="hidden md:flex items-center justify-center gap-8 font-mono text-[12.5px] tracking-[0.02em] text-[var(--color-ink-dim)] justify-self-center">
           <a href="#walkthrough" className="hover:text-[var(--color-accent)] transition-colors">
             Walkthrough
           </a>
@@ -75,7 +75,7 @@ export default async function Nav() {
           href={GITHUB_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex items-center gap-2 rounded-[2px] border border-[var(--color-border)] bg-[var(--color-surface)] px-2.5 py-1.5 font-mono text-[12px] text-[var(--color-ink-dim)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-ink)]"
+          className="group inline-flex items-center gap-2 justify-self-end rounded-[2px] border border-[var(--color-border)] bg-[var(--color-surface)] px-2.5 py-1.5 font-mono text-[12px] text-[var(--color-ink-dim)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-ink)]"
           aria-label="Star AgentDesk on GitHub"
         >
           <GithubIcon className="h-3.5 w-3.5" />
@@ -87,7 +87,6 @@ export default async function Nav() {
           )}
         </a>
       </div>
-      <div className="h-px w-full bg-[var(--color-border)]" />
     </header>
   );
 }

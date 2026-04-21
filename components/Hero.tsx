@@ -1,132 +1,140 @@
-import Image from "next/image";
 import { getLatestRelease } from "@/lib/github";
-import { formatDate } from "@/lib/changelog";
 import DownloadButton from "./DownloadButton";
+import CopyCommand from "./CopyCommand";
+import { DEMO_VIDEO_URL } from "@/lib/links";
+
+function PlayIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M8 5.5v13l11-6.5L8 5.5Z" />
+    </svg>
+  );
+}
 
 export default async function Hero() {
   const release = await getLatestRelease();
-  const stamp = release.publishedAt
-    ? formatDate(release.publishedAt.slice(0, 10))
-    : null;
 
   return (
     <section className="horizon relative overflow-hidden">
-      <div className="mx-auto max-w-[1200px] px-6 md:px-10 pt-20 pb-12 md:pt-28 md:pb-20">
-        <div className="rise rise-1 flex justify-center md:justify-start">
-          <span className="inline-flex items-center gap-2 rounded-[2px] border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1.5 font-mono text-[11px] tracking-[0.12em] text-[var(--color-ink-dim)]">
-            <span className="live-dot" />
-            <span className="text-[var(--color-accent)] uppercase">Phase-2 · TinyFish Accelerator</span>
-            <span className="text-[var(--color-muted-deep)]">/</span>
-            <span className="uppercase">Verification layer</span>
-          </span>
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10 pt-8 pb-10 md:pt-14 md:pb-16">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.25fr_1fr] md:gap-14 md:items-start">
+          {/* LEFT — headline / copy / CTAs */}
+          <div>
+            {/* Subtle eyebrow — TinyFish Accelerator / Verification layer */}
+            <div className="rise rise-1 flex items-center justify-center md:justify-start gap-2.5 font-mono text-[10.5px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
+              <span className="inline-block h-1.5 w-1.5 rotate-45 border border-[var(--color-muted)]" />
+              <span>TinyFish Accelerator</span>
+              <span className="text-[var(--color-muted-deep)]">/</span>
+              <span>Verification layer</span>
+            </div>
+
+            <h1
+              className="rise rise-2 display mt-5 text-center md:text-left text-[36px] sm:text-[44px] md:text-[52px] lg:text-[64px] text-[var(--color-ink)]"
+              style={{ lineHeight: 0.98 }}
+            >
+              Agents ship.
+              <br />
+              <span className="text-[var(--color-accent)] italic font-light [font-feature-settings:'ss01']">
+                AgentDesk
+              </span>
+              <span className="text-[var(--color-ink)]"> verifies.</span>
+            </h1>
+
+            <p className="rise rise-3 mx-auto md:mx-0 mt-6 md:mt-7 max-w-[54ch] text-center md:text-left text-[15.5px] leading-[1.55] text-[var(--color-ink-dim)]">
+              Every AI coding agent can ship code. None of them verifies it
+              works. AgentDesk does. A real browser drives your production URL
+              end-to-end after every push, and tells you — in one sentence —
+              which commit broke what.
+            </p>
+
+            {/* Requirements — clearer + warn highlight on Claude Code CLI */}
+            <div className="rise rise-3 mt-6 md:mt-7 rounded-[3px] border border-[var(--color-warn)]/40 bg-[color-mix(in_oklab,var(--color-warn)_6%,transparent)] px-4 py-3">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-[11px] uppercase tracking-[0.12em]">
+                <span className="inline-flex items-center gap-1.5 text-[var(--color-warn)]">
+                  <span className="inline-block h-1.5 w-1.5 rotate-45 border border-[var(--color-warn)]" />
+                  Requires
+                </span>
+                <span className="text-[var(--color-ink)]">macOS 13+</span>
+                <span className="text-[var(--color-muted-deep)]">·</span>
+                <span className="text-[var(--color-ink)]">Apple Silicon</span>
+                <span className="text-[var(--color-muted-deep)]">·</span>
+                <span className="text-[var(--color-warn)]">
+                  Claude Code CLI
+                </span>
+              </div>
+              <p className="mt-2 text-[12.5px] leading-[1.55] text-[var(--color-ink-dim)]">
+                AgentDesk orchestrates Claude Code sessions — without the CLI
+                installed, there&rsquo;s nothing to verify.
+              </p>
+            </div>
+
+            {/* CTAs */}
+            <div className="rise rise-4 mt-7 flex flex-wrap items-center justify-center md:justify-start gap-3">
+              <DownloadButton release={release} size="lg" />
+              {DEMO_VIDEO_URL && (
+                <a
+                  href={DEMO_VIDEO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost !py-4 !px-6 !text-[14px]"
+                  aria-label="Watch the 5-minute demo video"
+                >
+                  <PlayIcon className="h-3.5 w-3.5" />
+                  <span>Watch 5-min demo</span>
+                </a>
+              )}
+            </div>
+          </div>
+
+          {/* RIGHT — install in two steps, stacked */}
+          <aside className="rise rise-4 md:mt-1">
+            <div className="flex items-center gap-2.5 font-mono text-[10.5px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
+              <span className="h-px w-6 bg-[var(--color-border-strong)]" />
+              Install in two steps
+            </div>
+
+            <div className="mt-4 flex flex-col gap-3">
+              <InstallCard
+                n="01"
+                title="Download the .dmg"
+                body="Drag AgentDesk.app into /Applications."
+              />
+              <InstallCard
+                n="02"
+                title="Strip quarantine once"
+                body="Paste in Terminal. One-time."
+              />
+              <CopyCommand command="xattr -rd com.apple.quarantine /Applications/AgentDesk.app" />
+            </div>
+          </aside>
         </div>
-
-        <h1
-          className="rise rise-2 display mt-8 text-center md:text-left text-[44px] sm:text-[58px] md:text-[76px] lg:text-[92px] text-[var(--color-ink)]"
-          style={{ lineHeight: 0.96 }}
-        >
-          Agents ship.
-          <br />
-          <span className="text-[var(--color-accent)] italic font-light [font-feature-settings:'ss01']">
-            AgentDesk
-          </span>
-          <span className="text-[var(--color-ink)]"> verifies.</span>
-        </h1>
-
-        <p className="rise rise-3 mx-auto md:mx-0 mt-8 md:mt-10 max-w-[58ch] text-center md:text-left text-[17px] leading-[1.55] text-[var(--color-ink-dim)]">
-          Every AI coding agent can ship code. None of them verifies it works.
-          AgentDesk does. A real browser drives your production URL end-to-end
-          after every push, and tells you — in one sentence — which commit
-          broke what.
-        </p>
-
-        <div className="rise rise-4 mt-10 flex flex-wrap items-center justify-center md:justify-start gap-5">
-          <DownloadButton release={release} size="lg" />
-          <a
-            href="#walkthrough"
-            className="ink-link font-mono text-[13px] tracking-[0.02em] text-[var(--color-ink-dim)]"
-          >
-            See the full walkthrough →
-          </a>
-        </div>
-
-        <div className="rise rise-4 mt-8 flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-2 font-mono text-[11.5px] tracking-[0.08em] text-[var(--color-muted)]">
-          <span className="uppercase">macOS 13+ · Apple Silicon</span>
-          <span className="text-[var(--color-muted-deep)]">·</span>
-          <span className="uppercase">{release.dmgName.match(/(\d+\.\d+\.\d+)/)?.[0] ?? "2.2.1"}</span>
-          {stamp && (
-            <>
-              <span className="text-[var(--color-muted-deep)]">·</span>
-              <span className="uppercase">shipped {stamp}</span>
-            </>
-          )}
-          <span className="text-[var(--color-muted-deep)]">·</span>
-          <span className="uppercase">free · unsigned</span>
-        </div>
-
-        <HeroVisual />
       </div>
     </section>
   );
 }
 
-function HeroVisual() {
+function InstallCard({
+  n,
+  title,
+  body,
+}: {
+  n: string;
+  title: string;
+  body: string;
+}) {
   return (
-    <div className="rise rise-5 relative mt-16 md:mt-24">
-      <CornerTicks />
-
-      <div className="relative rounded-[6px] border border-[var(--color-border-strong)] bg-[var(--color-surface)] p-1.5 shadow-[0_40px_120px_-30px_rgba(94,234,212,0.15),0_20px_60px_-20px_rgba(0,0,0,0.8)]">
-        <div className="flex items-center justify-between border-b border-[var(--color-border)] px-3 py-2.5">
-          <div className="flex items-center gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#3a3a41]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#3a3a41]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#3a3a41]" />
-          </div>
-          <div className="font-mono text-[10.5px] tracking-[0.14em] uppercase text-[var(--color-muted)]">
-            AgentDesk.app — 3 sessions live
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="live-dot" />
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-[var(--color-accent)]">
-              rec
-            </span>
-          </div>
-        </div>
-
-        <div className="relative overflow-hidden rounded-[3px]">
-          <Image
-            src="/assets/dashboard.png"
-            alt="AgentDesk dashboard: active Claude Code sessions with verification status"
-            width={2800}
-            height={1800}
-            priority
-            className="block w-full h-auto"
-          />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[var(--color-canvas)]/40 to-transparent" />
-        </div>
-      </div>
-
-      <div className="mt-4 flex flex-wrap items-center justify-between gap-3 font-mono text-[10.5px] uppercase tracking-[0.14em] text-[var(--color-muted-deep)]">
-        <span>dashboard.view</span>
-        <span className="flex items-center gap-2">
-          <span className="h-px w-12 bg-[var(--color-border)]" />
-          <span>native macOS · not a browser extension</span>
-          <span className="h-px w-12 bg-[var(--color-border)]" />
+    <div className="rounded-[3px] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3">
+      <div className="flex items-baseline gap-3">
+        <span className="font-mono text-[10.5px] tracking-[0.14em] text-[var(--color-muted-deep)]">
+          {n}
         </span>
-        <span>2026.04</span>
+        <span className="text-[14px] font-medium tracking-[-0.01em] text-[var(--color-ink)]">
+          {title}
+        </span>
       </div>
+      <p className="mt-1 text-[12.5px] leading-[1.55] text-[var(--color-ink-dim)]">
+        {body}
+      </p>
     </div>
-  );
-}
-
-function CornerTicks() {
-  const tick = "absolute h-3 w-3 border-[var(--color-accent)]/50";
-  return (
-    <>
-      <span className={`${tick} -top-2 -left-2 border-l border-t`} />
-      <span className={`${tick} -top-2 -right-2 border-r border-t`} />
-      <span className={`${tick} -bottom-2 -left-2 border-l border-b`} />
-      <span className={`${tick} -bottom-2 -right-2 border-r border-b`} />
-    </>
   );
 }

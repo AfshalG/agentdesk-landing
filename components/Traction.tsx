@@ -155,7 +155,7 @@ export default function Traction() {
                   <strong className="text-[var(--color-ink)]">Trevor I. Lasn</strong>{" "}
                   <span className="text-[var(--color-muted)]">· CEO 0xinsider</span>
                   <div className="mt-1">
-                    &ldquo;Running multiple Claude Code sessions in parallel — the bottleneck is me clicking through to make sure everything works.&rdquo;
+                    &ldquo;This is exactly where I&rsquo;m at right now — running multiple Claude Code sessions in parallel, and the actual bottleneck is me clicking through the app to make sure everything still works.&rdquo;
                   </div>
                 </li>
                 <li>
@@ -167,9 +167,9 @@ export default function Traction() {
                 </li>
                 <li>
                   <strong className="text-[var(--color-ink)]">Yangshun Tay</strong>{" "}
-                  <span className="text-[var(--color-muted)]">· GreatFrontEnd founder, ex-Meta</span>
+                  <span className="text-[var(--color-muted)]">· GreatFrontEnd founder, ex-Meta · TinyFish advisor</span>
                   <div className="mt-1">
-                    &ldquo;Very cool! Good stuff and all the best.&rdquo;
+                    &ldquo;Very cool! I didn&rsquo;t know this was by an NUS student. Good stuff and all the best.&rdquo;
                   </div>
                 </li>
               </ul>
