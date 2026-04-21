@@ -1,31 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import { GITHUB_URL, getStarCount } from "@/lib/github";
 import { getCurrentVersion } from "@/lib/changelog";
-
-function AgentDeskMark({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M12 2.5 3.5 5.4v6.1c0 5.2 3.6 8.9 8.5 10 4.9-1.1 8.5-4.8 8.5-10V5.4L12 2.5Z"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinejoin="round"
-      />
-      <path
-        d="m8.2 12 2.8 2.8 5-5.2"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
 
 function GithubIcon({ className = "" }: { className?: string }) {
   return (
@@ -43,7 +19,14 @@ export default async function Nav() {
       <div className="mx-auto grid max-w-[1200px] grid-cols-[auto_1fr_auto] items-center gap-6 px-6 py-4 md:px-10 md:py-5">
         <div className="flex items-center gap-3 justify-self-start">
           <Link href="/" className="flex items-center gap-2.5 group" aria-label="AgentDesk home">
-            <AgentDeskMark className="h-6 w-6 text-[var(--color-accent)] transition-transform duration-300 group-hover:rotate-[-4deg]" />
+            <Image
+              src="/assets/logo-mark.png"
+              alt=""
+              width={64}
+              height={64}
+              priority
+              className="h-7 w-7 rounded-[5px] transition-transform duration-300 group-hover:rotate-[-4deg]"
+            />
             <span className="text-[15px] font-medium tracking-[-0.01em] text-[var(--color-ink)]">
               AgentDesk
             </span>
