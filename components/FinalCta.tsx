@@ -40,10 +40,10 @@ export default async function FinalCta() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost !py-4 !px-6 !text-[14px]"
-              aria-label="Watch the 5-minute demo video"
+              aria-label="Watch the 5-minute walkthrough video"
             >
               <PlayIcon className="h-3.5 w-3.5" />
-              <span>Watch 5-min demo</span>
+              <span>Watch 5-min walkthrough</span>
             </a>
           )}
         </div>
