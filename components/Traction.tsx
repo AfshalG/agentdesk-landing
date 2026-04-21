@@ -148,7 +148,7 @@ export default function Traction() {
           <figure className="md:col-span-5 rounded-[3px] border border-[var(--color-border)] bg-[var(--color-surface)] p-8 md:p-10 flex flex-col justify-between">
             <div>
               <div className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-[var(--color-accent)]">
-                Voices from the cohort
+                More public voices
               </div>
               <ul className="mt-6 flex flex-col gap-5 text-[14.5px] leading-[1.55] text-[var(--color-ink-dim)]">
                 <li>

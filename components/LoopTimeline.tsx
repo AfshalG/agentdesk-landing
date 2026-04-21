@@ -114,7 +114,7 @@ export default function LoopTimeline() {
             the loop closes
           </p>
           <p className="mt-5 display text-[28px] md:text-[44px] leading-[1.1] text-[var(--color-ink)]">
-            No human ever clicked a button
+            No human ever opened a browser
             <br className="hidden md:block" />
             to find out if production still worked.
           </p>

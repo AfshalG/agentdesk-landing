@@ -32,7 +32,9 @@ function FireworksLogo() {
         <path d="M11 2v5M11 15v5M2 11h5M15 11h5M4.5 4.5l3.5 3.5M14 14l3.5 3.5M17.5 4.5 14 8M8 14l-3.5 3.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
         <circle cx="11" cy="11" r="1.6" fill="currentColor" />
       </svg>
-      <span className="text-[17px] font-normal lowercase tracking-[-0.005em]">fireworks</span>
+      <span className="text-[17px] font-medium tracking-[-0.01em]">
+        Fireworks <span className="font-normal text-[var(--color-muted)]">AI</span>
+      </span>
     </div>
   );
 }

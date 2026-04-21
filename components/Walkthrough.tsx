@@ -19,8 +19,8 @@ const steps: Step[] = [
       "Scans ~/.claude/projects every few seconds. Each session card carries the project name, branch, last commit, deploy URL, and a live pulse when the agent is still working.",
     bullets: [
       "Hook receiver on localhost:9876 fires on SessionStart / Stop",
-      "Works with Cursor and Copilot too — anything writing commits locally",
-      "Group sessions by real cwd, not launch directory",
+      "Groups sessions by real cwd — cd into another project mid-session and it lands on the right card",
+      "Idle sessions tuck into a Past Sessions folder so the dashboard stays focused on what's running",
     ],
     image: {
       src: "/assets/dashboard.png",
@@ -33,7 +33,7 @@ const steps: Step[] = [
     eyebrow: "push · detected",
     title: "Agent pushes. A toast fires.",
     body:
-      "The moment a git push lands on a feature branch tracked by AgentDesk, a verification job is queued. No polling, no manual trigger — the agent&apos;s own git hook tells AgentDesk something shipped.",
+      "The moment a git push lands on a branch tracked by AgentDesk, a verification job is queued. Claude Code&apos;s Stop hook fires when the agent finishes a turn — AgentDesk reads the session transcript, spots the push command, and kicks off the checks. No polling, no manual trigger.",
     bullets: [
       "Pre-flight push check catches branches never sent to origin",
       "One toast per push — deduplicated across every session card",
@@ -48,7 +48,7 @@ const steps: Step[] = [
   {
     n: "03",
     eyebrow: "browser · live",
-    title: "A real browser drives your URL.",
+    title: "TinyFish drives your URL.",
     body:
       "TinyFish navigates the actual production site over SSE. You watch the page render in a live iframe inside AgentDesk while structured JSON streams in alongside — which selectors fired, which buttons clicked, what each network response was.",
     bullets: [
@@ -61,12 +61,12 @@ const steps: Step[] = [
   {
     n: "04",
     eyebrow: "failure · explained",
-    title: "Fireworks writes the one-sentence why.",
+    title: "Fireworks AI writes the one-sentence why.",
     body:
-      "When a check fails, gpt-oss-120b diagnoses it in about 1.4 seconds and correlates it to the commit that caused the break. Click &ldquo;Suggest Fix&rdquo; and Kimi K2.5 does few-shot RAG over past failures on this project and drafts the patch.",
+      "When a check fails, Fireworks AI&rsquo;s gpt-oss-120b diagnoses it in about 1.4 seconds and correlates it to the commit that caused the break. Click &ldquo;Suggest Fix&rdquo; and Kimi K2.5 does few-shot RAG over past failures on this project and drafts the patch.",
     bullets: [
       "Diagnosis decoupled from the result emit — never blocks the toast",
-      "OpenRouter cascade auto-fallbacks when Fireworks is rate-limited",
+      "OpenRouter cascade auto-fallbacks when Fireworks AI is rate-limited",
       "In-app AI Chat picks up the same context and keeps investigating",
     ],
     image: {
@@ -78,9 +78,9 @@ const steps: Step[] = [
   {
     n: "05",
     eyebrow: "pr · shipped",
-    title: "Create, polish, merge. One tab.",
+    title: "Composio creates, polishes, merges. One tab.",
     body:
-      "GitHub lives in a dedicated tab. Click Create PR and an editable draft opens with an AI-polished title and body written from your actual commit log. Click Merge PR and the squash commit is already staged — green-check watch runs live.",
+      "GitHub lives in a dedicated tab, wired through Composio. Click Create PR and an editable draft opens with an AI-polished title and body written from your actual commit log. Click Merge PR and the squash commit is already staged — green-check watch runs live.",
     bullets: [
       "Fork-aware. Works on forks you don&apos;t own.",
       "Post the diagnosis straight to the failing PR as a comment",
@@ -99,7 +99,7 @@ const steps: Step[] = [
     body:
       "Every verification run — checks, duration, commit SHA, diagnosis, Suggest Fix output — persists locally. Filter by project, date range, or failure class. Export as JSON. Re-run any check straight from the row.",
     bullets: [
-      "Local SQLite, zero cloud dependency",
+      "Plain JSON on disk at ~/.config/agentdesk — zero cloud dependency",
       "Diagnosis + Suggest Fix saved alongside each run",
       "Powers the few-shot RAG that makes Kimi&apos;s fixes better over time",
     ],

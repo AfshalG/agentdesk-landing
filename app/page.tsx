@@ -5,7 +5,6 @@ import HeroShowcase from "@/components/HeroShowcase";
 import InstallWarning from "@/components/InstallWarning";
 import Walkthrough from "@/components/Walkthrough";
 import LoopTimeline from "@/components/LoopTimeline";
-import TinyFishBlock from "@/components/TinyFishBlock";
 import Traction from "@/components/Traction";
 import ChangelogPreview from "@/components/ChangelogPreview";
 import FinalCta from "@/components/FinalCta";
@@ -22,7 +21,6 @@ export default function Home() {
         <InstallWarning />
         <Walkthrough />
         <LoopTimeline />
-        <TinyFishBlock />
         <Traction />
         <ChangelogPreview />
         <FinalCta />
