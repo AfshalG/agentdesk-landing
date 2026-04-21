@@ -56,6 +56,8 @@ export default async function Hero() {
                 </span>
                 <span className="text-[var(--color-ink)]">macOS 13+</span>
                 <span className="text-[var(--color-muted-deep)]">·</span>
+                <span className="text-[var(--color-ink)]">Apple Silicon</span>
+                <span className="text-[var(--color-muted-deep)]">·</span>
                 <span className="text-[var(--color-warn)]">
                   Claude Code CLI
                 </span>
@@ -74,11 +76,11 @@ export default async function Hero() {
                   href={DEMO_VIDEO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-ghost !py-4 !px-6 !text-[14px]"
+                  className="btn-ghost !py-3.5 !px-5 !text-[13px]"
                   aria-label="Watch the 5-minute walkthrough video"
                 >
                   <PlayIcon className="h-3.5 w-3.5" />
-                  <span>Watch 5-min walkthrough</span>
+                  <span>Watch walkthrough · 5 min</span>
                 </a>
               )}
             </div>

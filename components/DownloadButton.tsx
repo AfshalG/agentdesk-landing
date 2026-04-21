@@ -30,13 +30,10 @@ export default function DownloadButton({
     <a
       href={release.dmgUrl}
       className={`${classes} ${sizeClasses}`}
-      aria-label={`Download ${release.dmgName}`}
+      aria-label={`Download ${release.dmgName} for Apple Silicon Mac`}
     >
       <AppleIcon className="h-4 w-4" />
       <span>{label}</span>
-      <span className="ml-1 hidden sm:inline opacity-60">
-        · Apple Silicon
-      </span>
     </a>
   );
 }
