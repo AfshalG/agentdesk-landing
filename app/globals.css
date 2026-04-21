@@ -41,6 +41,12 @@ html {
   font-feature-settings: "ss01", "cv11";
 }
 
+/* Anchor targets sit under the fixed nav without this */
+section[id],
+aside[id] {
+  scroll-margin-top: 96px;
+}
+
 body {
   background: var(--color-canvas);
   color: var(--color-ink);

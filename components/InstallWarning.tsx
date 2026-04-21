@@ -1,6 +1,6 @@
 export default function InstallWarning() {
   return (
-    <section id="install" className="relative border-y border-[var(--color-border)] bg-[var(--color-canvas-deep)]">
+    <section id="install-why" className="relative border-y border-[var(--color-border)] bg-[var(--color-canvas-deep)]">
       <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-12 px-6 py-20 md:grid-cols-[360px_1fr] md:gap-16 md:px-10 md:py-28">
 
         {/* Left rail — sticky label */}

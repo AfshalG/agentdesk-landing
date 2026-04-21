@@ -47,7 +47,7 @@ export default async function Hero() {
               which commit broke what.
             </p>
 
-            {/* Requirements — clearer + warn highlight on Claude Code CLI */}
+            {/* Requirements — macOS version + Claude Code CLI as the hard prereq */}
             <div className="rise rise-3 mt-6 md:mt-7 rounded-[3px] border border-[var(--color-warn)]/40 bg-[color-mix(in_oklab,var(--color-warn)_6%,transparent)] px-4 py-3">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-[11px] uppercase tracking-[0.12em]">
                 <span className="inline-flex items-center gap-1.5 text-[var(--color-warn)]">
@@ -55,8 +55,6 @@ export default async function Hero() {
                   Requires
                 </span>
                 <span className="text-[var(--color-ink)]">macOS 13+</span>
-                <span className="text-[var(--color-muted-deep)]">·</span>
-                <span className="text-[var(--color-ink)]">Apple Silicon</span>
                 <span className="text-[var(--color-muted-deep)]">·</span>
                 <span className="text-[var(--color-warn)]">
                   Claude Code CLI
@@ -86,11 +84,11 @@ export default async function Hero() {
             </div>
           </div>
 
-          {/* RIGHT — install in two steps, stacked */}
-          <aside className="rise rise-4 md:mt-1">
+          {/* RIGHT — install in three steps, stacked */}
+          <aside id="install" className="rise rise-4 md:mt-1">
             <div className="flex items-center gap-2.5 font-mono text-[10.5px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
               <span className="h-px w-6 bg-[var(--color-border-strong)]" />
-              Install in two steps
+              Install in three steps
             </div>
 
             <div className="mt-4 flex flex-col gap-3">
@@ -102,9 +100,15 @@ export default async function Hero() {
               <InstallCard
                 n="02"
                 title="Strip quarantine once"
-                body="Paste in Terminal. One-time."
+                body="Paste in Terminal. One-time command."
+                warn="Don't double-click the app before this — macOS will flag it as damaged and refuse to open."
               />
               <CopyCommand command="xattr -rd com.apple.quarantine /Applications/AgentDesk.app" />
+              <InstallCard
+                n="03"
+                title="Open from /Applications"
+                body="Launch AgentDesk from Applications. From here on it opens like any other app."
+              />
             </div>
           </aside>
         </div>
@@ -117,10 +121,12 @@ function InstallCard({
   n,
   title,
   body,
+  warn,
 }: {
   n: string;
   title: string;
   body: string;
+  warn?: string;
 }) {
   return (
     <div className="rounded-[3px] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3">
@@ -135,6 +141,12 @@ function InstallCard({
       <p className="mt-1 text-[12.5px] leading-[1.55] text-[var(--color-ink-dim)]">
         {body}
       </p>
+      {warn && (
+        <p className="mt-2 flex items-start gap-1.5 text-[11.5px] leading-[1.5] text-[var(--color-warn)]">
+          <span className="mt-[4px] inline-block h-1.5 w-1.5 shrink-0 rotate-45 border border-[var(--color-warn)]" />
+          <span>{warn}</span>
+        </p>
+      )}
     </div>
   );
 }

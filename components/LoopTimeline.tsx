@@ -7,32 +7,32 @@ type Beat = {
 
 const beats: Beat[] = [
   {
-    t: "0s",
+    t: "push",
     label: "Agent pushes",
     body: "Claude Code finishes a feature branch. It commits and pushes to origin like any developer would.",
     kind: "agent",
   },
   {
-    t: "2s",
+    t: "instant",
     label: "AgentDesk fires",
     body: "The toast lights up. A verification job is queued against the deployed URL the project is mapped to.",
     kind: "desk",
   },
   {
-    t: "15s",
+    t: "live",
     label: "TinyFish verifies",
-    body: "A real Chromium session navigates the production URL, runs the goal end-to-end, and streams every step into the app.",
+    body: "A real Chromium session navigates the production URL, runs the goal end-to-end, and streams every step into the app. You watch it happen.",
     kind: "browser",
   },
   {
-    t: "20s",
-    label: "Fireworks diagnoses",
+    t: "moments later",
+    label: "Fireworks AI diagnoses",
     body: "If it fails, gpt-oss-120b writes the one-sentence cause and maps it to the offending commit SHA.",
     kind: "llm",
   },
   {
-    t: "45s",
-    label: "You merge",
+    t: "one click",
+    label: "You merge via Composio",
     body: "Open the PR in the GitHub tab. Click Merge. AgentDesk watches the required checks go green. Deployment-live toast fires.",
     kind: "you",
   },
@@ -58,9 +58,9 @@ export default function LoopTimeline() {
               <span className="live-dot" /> Section 04 · The loop
             </div>
             <h2 className="display text-[40px] md:text-[60px] leading-[1.02] text-[var(--color-ink)] max-w-[18ch]">
-              Forty-five seconds,{" "}
+              Push to merged.{" "}
               <span className="italic font-light text-[var(--color-accent)]">
-                push to merged.
+                Hands-off.
               </span>
             </h2>
           </div>
@@ -79,10 +79,10 @@ export default function LoopTimeline() {
           {beats.map((b, i) => (
             <li
               key={b.t}
-              className="relative grid grid-cols-[80px_auto_1fr] md:grid-cols-[140px_auto_1fr] items-start gap-6 md:gap-10 py-6"
+              className="relative grid grid-cols-[96px_auto_1fr] md:grid-cols-[170px_auto_1fr] items-start gap-6 md:gap-10 py-6"
             >
-              {/* Timestamp */}
-              <div className="font-mono text-[22px] md:text-[34px] leading-none text-[var(--color-ink)] tabular-nums tracking-tight">
+              {/* Beat label */}
+              <div className="font-mono text-[12px] md:text-[15px] leading-[1.25] uppercase tracking-[0.14em] text-[var(--color-accent)]">
                 {b.t}
               </div>
 
