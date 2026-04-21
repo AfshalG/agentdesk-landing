@@ -36,7 +36,7 @@ export default async function Nav() {
           </span>
         </div>
 
-        <nav className="hidden md:flex items-center justify-center gap-8 font-mono text-[12.5px] tracking-[0.02em] text-[var(--color-ink-dim)] justify-self-center">
+        <nav className="hidden md:flex items-center justify-center gap-7 lg:gap-8 font-mono text-[12.5px] tracking-[0.02em] text-[var(--color-ink-dim)] justify-self-center">
           <a href="#walkthrough" className="hover:text-[var(--color-accent)] transition-colors">
             Walkthrough
           </a>
@@ -45,6 +45,9 @@ export default async function Nav() {
           </a>
           <a href="#loop" className="hover:text-[var(--color-accent)] transition-colors">
             The&nbsp;Loop
+          </a>
+          <a href="#pricing" className="hover:text-[var(--color-accent)] transition-colors">
+            Pricing
           </a>
           <Link
             href="/changelog"

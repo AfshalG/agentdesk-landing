@@ -40,6 +40,9 @@ export default function Footer() {
           <a href="#loop" className="text-[var(--color-ink-dim)] hover:text-[var(--color-accent)]">
             The Loop
           </a>
+          <a href="#pricing" className="text-[var(--color-ink-dim)] hover:text-[var(--color-accent)]">
+            Pricing
+          </a>
           <Link href="/changelog" className="text-[var(--color-ink-dim)] hover:text-[var(--color-accent)]">
             Changelog
           </Link>

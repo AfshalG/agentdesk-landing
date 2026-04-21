@@ -7,6 +7,7 @@ import FirstRun from "@/components/FirstRun";
 import Walkthrough from "@/components/Walkthrough";
 import LoopTimeline from "@/components/LoopTimeline";
 import Traction from "@/components/Traction";
+import Pricing from "@/components/Pricing";
 import ChangelogPreview from "@/components/ChangelogPreview";
 import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
@@ -24,6 +25,7 @@ export default function Home() {
         <Walkthrough />
         <LoopTimeline />
         <Traction />
+        <Pricing />
         <ChangelogPreview />
         <FinalCta />
       </main>

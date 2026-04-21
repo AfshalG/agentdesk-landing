@@ -42,9 +42,9 @@ export default async function Hero() {
 
             <p className="rise rise-3 mx-auto md:mx-0 mt-6 md:mt-7 max-w-[54ch] text-center md:text-left text-[15.5px] leading-[1.55] text-[var(--color-ink-dim)]">
               Every AI coding agent can ship code. None of them verifies it
-              works. AgentDesk does. A real browser drives your production URL
-              end-to-end after every push, and tells you — in one sentence —
-              which commit broke what.
+              works. AgentDesk does. A real browser verifies every push —
+              diagnoses failures, drafts the fix, comments on the PR, ships
+              the merge.
             </p>
 
             {/* Requirements — macOS version + Claude Code CLI as the hard prereq */}

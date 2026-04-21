@@ -10,7 +10,7 @@ export default async function ChangelogPreview() {
         <header className="mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-accent)]">
-              <span className="live-dot" /> Section 07 · Releases
+              <span className="live-dot" /> Section 08 · Releases
             </div>
             <h2 className="display text-[40px] md:text-[56px] leading-[1.02] text-[var(--color-ink)]">
               Shipping weekly.
