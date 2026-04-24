@@ -1,8 +1,7 @@
-<p align="center">
-  <img src="./public/assets/logo-mark.png" alt="AgentDesk" width="96" />
-</p>
-
-# AgentDesk — Landing Page
+<h1>
+  <img src="./public/assets/logo-mark.png" alt="" width="40" align="absmiddle" />
+  &nbsp;AgentDesk — Landing Page
+</h1>
 
 *Built by [Afshal Gulam](https://github.com/AfshalG) ([LinkedIn](https://linkedin.com/in/afshal-g)) during the [TinyFish Web Agent Accelerator](https://tinyfish.ai) (Phase 2).*
 
