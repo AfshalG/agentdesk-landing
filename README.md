@@ -20,8 +20,6 @@ The desktop app source is private during the TinyFish Accelerator. This reposito
 
 *5-minute walkthrough — see the verification loop, GitHub tab, Slack alerts, and Composio integration end-to-end.*
 
-![AgentDesk dashboard](./public/assets/dashboard.png)
-
 ---
 
 ## Why this repo lives under `composio-community`
