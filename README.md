@@ -153,4 +153,4 @@ public/assets/        Screenshots + partner logos
 
 Built during the **[TinyFish Web Agent Accelerator](https://tinyfish.ai)** (Phase 2). AgentDesk's core verification engine is the TinyFish Web Agent — the GitHub and Slack layers documented above are Composio.
 
-Thanks to **[Sharath Kuruganty](https://x.com/sharathkuruganty)** at Composio for the partner credits and for inviting this repo into `composio-community/`.
+Thanks to **[Sharath Kuruganty](https://www.linkedin.com/in/sarath-kuruganty/)** at Composio for the partner credits and for inviting this repo into `composio-community/`.
